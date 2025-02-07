@@ -12,7 +12,12 @@ def search_incruit(keyword, page):
 
         url = f"https://search.incruit.com/list/search.asp?col=job&kw={keyword}&startno={page_no}"
 
-        response = requests.get(url)
+        headers ={
+            "user-Agent":
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+        }
+
+        response = requests.get(url, headers= headers)
         #print(response.status_code)
         soup = BeautifulSoup(response.text, "html.parser")
 
